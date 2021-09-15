@@ -1,33 +1,28 @@
+// FizzBuzz Progeck
+
 var elForm = document.querySelector('.form');
-var elInputNumber =document.querySelector('.input');
-var elResault = document.querySelector('.see')
+var elInput = document.querySelector('.input');
+var elResult =document.querySelector('.see');
 
-var fizzNumber = 3;
-var buzzNumber = 5;
-var resault = ''
+function FizzBuzz () {
+   var userNumber = Number(elInput.value);
 
-function fizzbuzz(inputNumber) {
-   if (inputNumber % (fizzNumber * buzzNumber) === 0){
-   resault = 'fizzbuzz';
-} 
-else if (inputNumber % buzzNumber === 0) {
-   resault = 'buzz';
-}
-else if (inputNumber % fizzNumber === 0) {
-   resault= 'fizz';
-}
-else {
-   resault = 'understand';
-}
-
-return resault;
+   if (userNumber % 3 <= 0 && userNumber % 5 <= 0) {
+      elResult.innerHTML = 'FizzBuzz';
+   }
+   else if (userNumber % 3 <= 0) {
+      elResult.innerHTML = 'Fizz';
+   }
+   else if (userNumber % 5 <= 0) {
+      elResult.innerHTML = 'Buzz';
+   }
+   else {
+      elResult.innerHTML = userNumber;
+   }
 }
 
-
-elForm = addEventListener('submit', function(evt){
+elForm.addEventListener('submit', function(evt) {
    evt.preventDefault();
 
-   var userNumber = Number(elInputNumber.value.trim());
-   elResault.innerHTML = fizzbuzz(userNumber);
-
+   FizzBuzz();
 })
